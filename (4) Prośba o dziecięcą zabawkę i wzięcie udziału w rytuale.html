@@ -1,0 +1,1923 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prośba o dziecięcą zabawkę i wzięcie udziału w rytuale</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/zpproto/vampire/main/iconvamp.png">
+    <style>
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-300.woff);
+            font-weight: 300;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-400.woff);
+            font-weight: 400;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-500.woff);
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-600.woff);
+            font-weight: 600;
+        }
+
+        @font-face {
+            font-family: Whitney;
+            src: url(https://cdn.jsdelivr.net/gh/Tyrrrz/DiscordFonts@master/whitney-700.woff);
+            font-weight: 700;
+        }
+
+        body {
+            background-color: #36393e;
+            color: #dcddde;
+            font-family: "Whitney", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+			max-width: 700px;
+			margin-left: auto;
+			margin-right: auto;
+        }
+
+        a {
+            color: #00aff4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            object-fit: contain;
+        }
+
+        .markdown {
+            max-width: 100%;
+            line-height: 1.3;
+            overflow-wrap: break-word;
+        }
+
+        .preserve-whitespace {
+            white-space: pre-wrap;
+        }
+
+        .spoiler-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .spoiler-text--hidden {
+            cursor: pointer;
+            background-color: #202225;
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .spoiler-text--hidden:hover {
+            background-color: rgba(32, 34, 37, 0.8);
+        }
+
+        .spoiler-text--hidden::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+        .quote {
+            display: flex;
+            margin: 0.05em 0;
+        }
+
+        .quote-border {
+            margin-right: 0.5em;
+            border: 2px solid #4f545c;
+            border-radius: 3px;
+        }
+
+        .pre {
+            background-color: #2f3136;
+            font-family: "Consolas", "Courier New", Courier, monospace;
+        }
+
+        .pre--multiline {
+            margin-top: 0.25em;
+            padding: 0.5em;
+            border: 2px solid #282b30;
+            border-radius: 5px;
+            color: #b9bbbe;
+        }
+
+        .pre--multiline.hljs {
+            background-color: #2f3136;
+            color: #b9bbbe;
+        }
+
+        .pre--inline {
+            padding: 2px;
+            border-radius: 3px;
+            font-size: 0.85em;
+        }
+
+        .mention {
+            border-radius: 3px;
+            padding: 0 2px;
+            color: #dee0fc;
+            background-color: rgba(88, 101, 242, .3);
+            font-weight: 500;
+        }
+
+        .mention:hover {
+            background-color: #5865f2;
+            color: #ffffff
+        }
+
+        .timestamp {
+            border-radius: 3px;
+            padding: 0 2px;
+            background-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .emoji {
+            width: 1.325em;
+            height: 1.325em;
+            margin: 0 0.06em;
+            vertical-align: -0.4em;
+        }
+
+        .emoji--small {
+            width: 1em;
+            height: 1em;
+        }
+
+        .emoji--large {
+            width: 2.8em;
+            height: 2.8em;
+        }
+
+        .preamble {
+            display: grid;
+            margin: 0 0.3em 0.6em 0.3em;
+            max-width: 100%;
+            grid-template-columns: auto 1fr;
+        }
+
+        .preamble__guild-icon-container {
+            grid-column: 1;
+        }
+
+        .preamble__guild-icon {
+            max-width: 88px;
+            max-height: 88px;
+        }
+
+        .preamble__entries-container {
+            grid-column: 2;
+            margin-left: 0.6em;
+        }
+
+        .preamble__entry {
+            font-size: 1.4em;
+            color: #ffffff;
+        }
+
+        .preamble__entry--small {
+            font-size: 1em;
+        }
+
+        .chatlog {
+            max-width: 100%;
+        }
+
+        .chatlog__message-group {
+            display: grid;
+            margin: 0 0.6em;
+            padding: 0.9em 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            grid-template-columns: auto 1fr;
+        }
+
+        .chatlog__reference-symbol {
+            grid-column: 1;
+            margin: 8px 4px 4px 18px;
+            border-left: 2px solid #4f545c;
+            border-top: 2px solid #4f545c;
+            border-radius: 8px 0 0 0;
+        }
+
+        .chatlog__reference {
+            display: flex;
+            grid-column: 2;
+            margin-bottom: 0.25em;
+            font-size: 0.875em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            align-items: center;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-avatar {
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            margin-right: 0.25em;
+        }
+
+        .chatlog__reference-name {
+            margin-right: 0.3em;
+            font-weight: 600;
+        }
+
+        .chatlog__reference-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__reference-content a:hover {
+            text-decoration: none;
+        }
+
+        .chatlog__reference-link {
+            cursor: pointer;
+            color: #b5b6b8;
+        }
+
+        .chatlog__reference-link * {
+            display: inline;
+            pointer-events: none;
+        }
+
+        .chatlog__reference-link:hover {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-link:hover *:not(.spoiler-text) {
+            color: #ffffff;
+        }
+
+        .chatlog__reference-edited-timestamp {
+            margin-left: 0.25em;
+            font-size: 0.8em;
+            unicode-bidi: bidi-override;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__author-avatar-container {
+            grid-column: 1;
+            width: 40px;
+            height: 40px;
+            margin-right: 16px;
+        }
+
+        .chatlog__author-avatar {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .chatlog__messages {
+            grid-column: 2;
+            min-width: 50%;
+            direction: ltr;
+        }
+
+        .chatlog__author-name {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .chatlog__timestamp {
+            margin-left: 0.3em;
+            font-size: 0.75em;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            color: rgba(255, 255, 255, 0.2);
+			display: none;
+        }
+
+        .chatlog__message {
+            padding: 0.1em 0.3em;
+            margin: 0 -0.3em;
+            background-color: transparent;
+            transition: background-color 1s ease;
+        }
+
+        .chatlog__message--highlighted {
+            background-color: rgba(114, 137, 218, 0.2);
+        }
+
+        .chatlog__message--pinned {
+            background-color: rgba(249, 168, 37, 0.05);
+        }
+
+        .chatlog__content {
+            font-size: 0.95em;
+            word-wrap: break-word;
+        }
+
+        .chatlog__edited-timestamp {
+            margin-left: 0.15em;
+            font-size: 0.8em;
+        }
+
+        .chatlog__attachment {
+            display: inline-block;
+            position: relative;
+            margin-top: 0.3em;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden {
+            cursor: pointer;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chatlog__attachment--hidden * {
+            pointer-events: none;
+        }
+
+        .chatlog__attachment-spoiler-caption {
+            display: none;
+            z-index: 999;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0.4em 0.8em;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            color: #dcddde;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-spoiler-caption {
+            display: block;
+        }
+
+        .chatlog__attachment--hidden:hover .chatlog__attachment-spoiler-caption {
+            color: #fff;
+        }
+
+        .chatlog__attachment-media {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-media {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic {
+            width: 100%;
+            max-width: 520px;
+            height: 40px;
+            padding: 10px;
+            background-color: #2f3136;
+            border: 1px solid #292b2f;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .chatlog__attachment--hidden .chatlog__attachment-generic {
+            filter: blur(44px);
+        }
+
+        .chatlog__attachment-generic-icon {
+            float: left;
+            width: 30px;
+            height: 100%;
+            margin-right: 10px;
+        }
+
+        .chatlog__attachment-generic-size {
+            color: #72767d;
+            font-size: 12px;
+        }
+
+        .chatlog__attachment-generic-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .chatlog__edited-timestamp {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .chatlog__embed {
+            display: flex;
+            margin-top: 0.3em;
+            max-width: 520px;
+        }
+
+        .chatlog__embed-color-pill {
+            flex-shrink: 0;
+            width: 0.25em;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        .chatlog__embed-color-pill--default {
+            background-color: #202225;
+        }
+
+        .chatlog__embed-content-container {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5em 0.6em;
+            background-color: rgba(46, 48, 54, 0.3);
+            border: 1px solid rgba(46, 48, 54, 0.6);
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .chatlog__embed-content {
+            display: flex;
+            width: 100%;
+        }
+
+        .chatlog__embed-text {
+            flex: 1;
+        }
+
+        .chatlog__embed-author {
+            display: flex;
+            margin-bottom: 0.3em;
+            align-items: center;
+        }
+
+        .chatlog__embed-author-icon {
+            margin-right: 0.5em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .chatlog__embed-author-name {
+            font-size: 0.875em;
+            font-weight: 600;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            color: #ffffff
+        }
+
+        .chatlog__embed-author-name-link {
+            color: #ffffff;
+        }
+
+        .chatlog__embed-title {
+            margin-bottom: 0.2em;
+            font-size: 0.875em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-description {
+            font-weight: 500;
+            font-size: 0.85em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0 0.5em;
+        }
+
+        .chatlog__embed-field {
+            flex: 0;
+            min-width: 100%;
+            max-width: 506px;
+            padding-top: 0.6em;
+            font-size: 0.875em;
+        }
+
+        .chatlog__embed-field--inline {
+            flex: 1;
+            flex-basis: auto;
+            min-width: 150px;
+        }
+
+        .chatlog__embed-field-name {
+            margin-bottom: 0.2em;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .chatlog__embed-field-value {
+            font-weight: 500;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-thumbnail {
+            flex: 0;
+            margin-left: 1.2em;
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-image-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-image {
+            max-width: 500px;
+            max-height: 400px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-footer {
+            margin-top: 0.6em;
+            color: #dcddde;
+        }
+
+        .chatlog__embed-footer-icon {
+            margin-right: 0.2em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+
+        .chatlog__embed-footer-text {
+            vertical-align: middle;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .chatlog__embed-plainimage {
+            vertical-align: top;
+            max-width: 45vw;
+            max-height: 500px;
+            border-radius: 3px;
+        }
+
+        .chatlog__embed-spotify {
+            border: 0;
+        }
+
+        .chatlog__embed-youtube-container {
+            margin-top: 0.6em;
+        }
+
+        .chatlog__embed-youtube {
+            border: 0;
+            border-radius: 3px;
+        }
+
+        .chatlog__sticker {
+            width: 180px;
+            height: 180px;
+        }
+
+        .chatlog__sticker--media {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .chatlog__reactions {
+            display: flex;
+        }
+
+        .chatlog__reaction {
+            display: flex;
+            align-items: center;
+            margin: 0.35em 0.1em 0.1em 0;
+            padding: .125rem .375rem;
+            background-color: #2f3136;
+            border-radius: 8px;
+            border-color: transparent;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        .chatlog__reaction:hover {
+            border-color: hsla(0,0%,100%,.2);
+            border-width: 1px;
+            border-style: solid;
+            background-color: transparent;
+        }
+
+        .chatlog__reaction-count {
+            min-width: 9px;
+            margin-left: 0.35em;
+            font-size: 0.875em;
+            color: #b9bbbe;
+        }
+
+        .chatlog__reaction:hover .chatlog__reaction-count {
+            color: #dcddde;
+        }
+
+        .chatlog__bot-tag {
+            position: relative;
+            top: -.1em;
+            margin-left: 0.3em;
+            padding: 0.05em 0.3em;
+            border-radius: 3px;
+            line-height: 1.3;
+            background-color: #5865F2;
+            color: #ffffff;
+            font-size: 0.625em;
+            font-weight: 500;
+        }
+
+        .postamble {
+            margin: 1.4em 0.3em 0.6em 0.3em;
+            padding: 1em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .postamble__entry {
+            color: #ffffff;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/solarized-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.pre--multiline').forEach(e => hljs.highlightBlock(e));
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.8.1/lottie.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.chatlog__sticker--media[data-source]').forEach(e => {
+                const imageDataUrl = e.getAttribute('data-source');
+
+                const anim = lottie.loadAnimation({
+                  container: e,
+                  renderer: 'svg',
+                  loop: true,
+                  autoplay: true,
+                  path: imageDataUrl
+                });
+
+                anim.addEventListener('data_failed', () =>
+                    e.innerHTML = '<strong>[Sticker cannot be rendered]</strong>'
+                );
+            });
+        });
+    </script>
+
+    <script>
+        function scrollToMessage(event, id) {
+            var element = document.getElementById('message-' + id);
+
+            if (element) {
+                event.preventDefault();
+
+                element.classList.add('chatlog__message--highlighted');
+
+                window.scrollTo({
+                    top: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - (window.innerHeight / 2),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(function() {
+                    element.classList.remove('chatlog__message--highlighted');
+                }, 2000);
+            }
+        }
+
+        function showSpoiler(event, element) {
+            if (element && element.classList.contains('spoiler-text--hidden')) {
+                event.preventDefault();
+                element.classList.remove('spoiler-text--hidden');
+            }
+            if (element && element.classList.contains('chatlog__attachment--hidden')) {
+                event.preventDefault();
+                element.classList.remove('chatlog__attachment--hidden');
+            }
+        }
+    </script>
+
+    <svg style="display: none">
+        <symbol id="icon-attachment" viewBox="0 0 720 960">
+            <path fill="#f4f5fb" d="M50,935a25,25,0,0,1-25-25V50A25,25,0,0,1,50,25H519.6L695,201.32V910a25,25,0,0,1-25,25Z" />
+            <path fill="#7789c4" d="M509.21,50,670,211.63V910H50V50H509.21M530,0H50A50,50,0,0,0,0,50V910a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50h0V191Z" />
+            <path fill="#f4f5fb" d="M530,215a25,25,0,0,1-25-25V50a25,25,0,0,1,16.23-23.41L693.41,198.77A25,25,0,0,1,670,215Z" />
+            <path fill="#7789c4" d="M530,70.71,649.29,190H530V70.71M530,0a50,50,0,0,0-50,50V190a50,50,0,0,0,50,50H670a50,50,0,0,0,50-50Z" />
+        </symbol>
+    </svg>
+</head>
+<body>
+
+<div class="preamble">
+    <div class="preamble__guild-icon-container">
+        <img class="preamble__guild-icon" src="https://raw.githubusercontent.com/zpproto/vampire/main/iconvamp.png" alt="Guild icon" loading="lazy">
+    </div>
+    <div class="preamble__entries-container">
+        <div class="preamble__entry">Born to the Night</div>
+
+            <div class="preamble__entry preamble__entry--small">Prośba o dziecięcą zabawkę i wzięcie udziału w rytuale</div>
+
+    </div>
+</div>
+
+<div class="chatlog">
+
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+     
+    </div>
+
+    <div class="chatlog__messages">
+    
+
+
+        <span class="chatlog__timestamp">07-Mar-21 12:45 AM</span>
+
+            <div class="chatlog__message " data-message-id="817905796372496385" id="message-817905796372496385" title="Message sent: 07-Mar-21 12:45 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Fundacja klanu Tremere jest na terenie dzielnicy Hyde Park. W tej samej dzielnicy jest UChicago Medicine - miejsce, do kt&#243;rego wytropiliście Vica - oraz University of Chicago, kt&#243;rego co najmniej część jest domeną Critiasa, Primogena klanu Brujah. Na p&#243;łnocno-wschodnim skraju dzielnicy jest też hotel Hyatt Place, gdzie jest kryj&#243;wka Brunona.</span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+            <div class="chatlog__message " data-message-id="817906240428572702" id="message-817906240428572702" title="Message sent: 07-Mar-21 12:47 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Bruno zaproponował, byście spotkali się na obrzeżach skweru naprzeciwko Museum of Science and Industry - w sam raz na spacer i dyskusję.</span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 12:48 AM</span>
+
+            <div class="chatlog__message " data-message-id="817906576940990506" id="message-817906576940990506" title="Message sent: 07-Mar-21 12:48 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia w takim razie czekała tam na niego.</span>
+
+                                <span class="chatlog__edited-timestamp" title="07-Mar-21 12:50 AM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 01:00 AM</span>
+
+            <div class="chatlog__message " data-message-id="817909422390247465" id="message-817909422390247465" title="Message sent: 07-Mar-21 01:00 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Tamtejsze muzeum było niczym ogromny monument starożytności zbudowany w czasach nowoczesności. Zdecydowanie jeden z okazalszych widok&#243;w Chicago. Czekałaś kilkadziesiąt minut wpatrzona w ogromny budynek otoczony przez nienagannie skoszone trawniki i brukowane ścieżki od strony p&#243;łnocnej oraz wielki, rozświetlony staw od strony południowej.
+
+W pewnym momencie usłyszałaś kroki wiodące od strony ulicy: Bruno. Zbliżył się i posłał ci uśmiech. <em>- Mia. Świetnie Cię widzieć.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 01:04 AM</span>
+
+            <div class="chatlog__message " data-message-id="817910637472251980" id="message-817910637472251980" title="Message sent: 07-Mar-21 01:04 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia wstała z ławki, na kt&#243;rej siedziała.
+- <em>Ciebie r&#243;wnież </em>- odpowiedziała mu uśmiechem. -<em> Przejdziemy się?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="818212489031974952" id="message-818212489031974952" title="Message sent: 07-Mar-21 09:04 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Z chęcią</em> - dołączył u twojego boku. Chwilę po rozpoczęciu spaceru kontyuował: <em>- Sprawiasz już wrażenie, jakby zrobiło się spokojniej. Najwyraźniej sprawy przebiegają pomyślnie?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:11 PM</span>
+
+            <div class="chatlog__message " data-message-id="818214237008691231" id="message-818214237008691231" title="Message sent: 07-Mar-21 09:11 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">- <em>Udało mi się spotkać z Galeforcem i zawarliśmy umowę. Przygotuje dla mnie nową tożsamość, a ja mam mu przelać za to pieniądze. </em>- po chwili pauzy dodała z powagą - <em>Poprosiłam go też o dodatkową rzecz. Chciałam załatwić sobie u niego papiery na to, że hospitalizuję się w ciągu dnia. Tylko, że nie chciał już za to pieniędzy...chciałby, żebyś ty dla niego coś przygotował związanego z magią krwi.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:17 PM</span>
+
+            <div class="chatlog__message " data-message-id="818215899081080863" id="message-818215899081080863" title="Message sent: 07-Mar-21 09:17 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Czyli większe bezpieczeństwo dla Ciebie jest już w drodze. Dobre wieści, cieszę się, że się z nim dogadałaś. A jego dodatkowa prośba... Ciekawe, że tak szybko potrzebuje mojego wsparcia</em> - Bruno się zamyślił na moment. <em>- W porządku, znajdę dla niego czas i siły. On wykonuje pracę ważną dla nas wszystkich. Skontaktuję się z nim dalej. Nie on jeden zresztą potrzebuje pomocy. Mia, zbliża się dobry moment, byś mogła udzielić takiej i mi.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:20 PM</span>
+
+            <div class="chatlog__message " data-message-id="818216544475545631" id="message-818216544475545631" title="Message sent: 07-Mar-21 09:20 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia spojrzała na niego lekko zaskoczona:
+- <em>Tak? Jak mogłabym ci pom&#243;c?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="818217561304727552" id="message-818217561304727552" title="Message sent: 07-Mar-21 09:24 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Czy pamiętasz, jak rozmawialiśmy parę nocy temu o Sun Che, jednej z członkiń Fundacji? Jeszcze przed końcem tego tygodnia potrzebuję wsp&#243;lnie z nią przeprowadzić pewien grupowy rytuał. Chcę, abyś wzięła w nim udział u mojego boku.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="818218101225160705" id="message-818218101225160705" title="Message sent: 07-Mar-21 09:26 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Przez chwilę jej oczy rozszerzyły się ze zdziwienia:
+- <em>Oczywiście. Jeśli uważasz, że będę pomocna</em> - dodała z lekkim zawahaniem. -<em> Jakie będzie moje zadanie?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:45 PM</span>
+
+            <div class="chatlog__message " data-message-id="818222933402320926" id="message-818222933402320926" title="Message sent: 07-Mar-21 09:45 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Przede wszystkim podczas samego rytuału będzie potrzeba, abyś nakreśliła część symboli składających się w centralny krąg, w kt&#243;rym będzie stał cel tegoż rytuału. Każdy z uczestnik&#243;w rytuału odpowiada za swoją część kręgu</em> - te słowa Bruno wypowiedział rzeczowo, tak jakby recytował instrukcję obsługi jakiegoś urządzenia. Przy kolejnych jednak jego ton stał się łagodniejszy, a może ostrożniejszy? <em>- Opr&#243;cz tego... Część tego rytuału polega na tym, że oczyścimy nim na pewien czas aurę wampira będącego jego celem, lecz instrumentem skupiającym ową zmianę aury musi być zabawka należąca do śmiertelnego dziecka, takiego jak Twoja c&#243;rka. Jesteś jedyną znaną mi Spokrewnioną, kt&#243;ra ma dziecko oraz wciąż utrzymuje z nim kontakt, dlatego muszę spytać, czy jesteś skłonna pozyskać coś takiego na potrzeby, o kt&#243;rych Ci opowiedziałem?</em></span>
+
+                                <span class="chatlog__edited-timestamp" title="07-Mar-21 09:46 PM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:52 PM</span>
+
+            <div class="chatlog__message " data-message-id="818224574164107298" id="message-818224574164107298" title="Message sent: 07-Mar-21 09:52 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia zmarszczyła na chwilę brwi z zaniepokojenia na wspomnienie swojej c&#243;rki.
+-<em> Czy to będzie miało na nią jakiś wpływ?...na moją c&#243;rkę...</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 09:59 PM</span>
+
+            <div class="chatlog__message " data-message-id="818226452620640288" id="message-818226452620640288" title="Message sent: 07-Mar-21 09:59 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Nie. Nie sama zabawka jest tutaj potrzebna, co raczej emocjonalny ślad na niej znajdujący się - ślad po chwilach, w kt&#243;rych dawała ona przyjemność niewinnej istocie, jaką jest dziecko. Czy pamiętasz, jak parę dni temu podążaliśmy za śladem emocji przez South Side? Chodzi o podobne zjawisko. Tym razem takie... empatyczne echo może zostać użyte do tego, by jego niewinny charakter powielić na sw&#243;j spos&#243;b, przenieść na wampira i w ten spos&#243;b, hmm, &quot;wybielić&quot; jego aurę</em> - Bruno zawahał się przed wypowiedzeniem kolejnych sł&#243;w. <em>- Sama zabawka ani jej aura nie ucierpią.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:05 PM</span>
+
+            <div class="chatlog__message " data-message-id="818227794127224872" id="message-818227794127224872" title="Message sent: 07-Mar-21 10:05 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">- <em>Kto jeszcze będzie podczas tego rytuału? Czy nikt nie wykorzysta tego...tej zabawki...wiedzy o mojej c&#243;rce przeciwko mnie?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="818228894565007381" id="message-818228894565007381" title="Message sent: 07-Mar-21 10:09 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Rytuał potrzebuje czworga os&#243;b. Oczekuję, że Sun Che sprowadzi do niego kogoś od siebie. O pochodzeniu zabawki - jeżeli faktycznie byłaby od Ciebie - nie zamierzam opowiadać. Rozumiem Twoją obawę, Mia. Jeżeli jesteś skłonna tutaj pom&#243;c, możesz przekazać ją mi, aby nie dawać trop&#243;w, kt&#243;re ktoś m&#243;głby połączyć. Sam ją dostarczę gdy już nasze grono czarownik&#243;w będzie szykować się do działania.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:16 PM</span>
+
+            <div class="chatlog__message " data-message-id="818230617900580935" id="message-818230617900580935" title="Message sent: 07-Mar-21 10:16 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">- <em>Czułabym się spokojniejsza, gdybyś ty przyni&#243;sł ją na miejsce. Mogę przekazać ci ją wcześniej. </em>- Po chwili zapytała -<em> Czy ma znaczenie jaka to zabawka? Czy może być taka, kt&#243;ra długo leżała na p&#243;łce czy raczej taka, kt&#243;rą ostatnio się bawiła?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:19 PM</span>
+
+            <div class="chatlog__message " data-message-id="818231381242806312" id="message-818231381242806312" title="Message sent: 07-Mar-21 10:19 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Hmm...</em> - chwila namysłu. <em>- Dzieci chyba wciąż wyrastają z zabawek, prawda?</em> - zadając to pytanie, Bruno brzmiał na lekko zakłopotanego. <em>- Potrzebna taka, kt&#243;ra jest bliska dziecięcemu sercu. Jak sądzę, nie musi to być coś, czym bawi się teraz, ale na pewno odpada taka, kt&#243;ra nie przypadła jej do gustu.</em></span>
+
+                                <span class="chatlog__edited-timestamp" title="07-Mar-21 10:20 PM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="818232774997573662" id="message-818232774997573662" title="Message sent: 07-Mar-21 10:24 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Już rozumiem. </em>
+Przez chwilę milczała, ale po namyśle zapytała:
+- <em>Czy ten rytuał to jest tw&#243;j pomysł czy jej...Sun Che?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:26 PM</span>
+
+            <div class="chatlog__message " data-message-id="818233103251800065" id="message-818233103251800065" title="Message sent: 07-Mar-21 10:26 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Jej, aczkolwiek miałem rękę w uświadomieniu jej o jego istnieniu. Dlaczego pytasz?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 10:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="818234335445647381" id="message-818234335445647381" title="Message sent: 07-Mar-21 10:31 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">- <em>To tylko ciekawość... Po prostu zastanawiałam się czy ta sprawa z tym wampirem, to bardziej twoje interesy czy jej. Chociaż być może nie ma to żadnego znaczenia dla mnie... Nie wiem ile chcesz albo możesz mi powiedzieć.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="818245008615276546" id="message-818245008615276546" title="Message sent: 07-Mar-21 11:13 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Bruno pokiwał głową w geście zrozumienia. <em>- C&#243;ż, sprawy innych Spokrewnionych zawsze są objęte tajemniczością, o kt&#243;rą dbamy i niechętnie ją rozwiewamy. Ale nie jestem jednym z dawnych starszych naszego klanu. Nie chcę w przeciwieństwie do nich, byś angażowała się w takie przedsięwzięcia bez prawa do szerszej wiedzy. Jak opowiadałem Ci wcześniej, szukam metod poprawiania relacji z tutejszą Fundacją, więc w takim pomaganiu jest pewien m&#243;j interes. Sprawa tego rytuału to jednak przede wszystkim... osobista kwestia samej Sun Che. To ona będzie w jego centrum, gdyż to ona potrzebuje tego oczyszczenia...</em>
+
+Ostatnie słowo zawisło na moment, aż Bruno zdecydował się najwyraźniej powiedzieć nieco więcej. <em>- ...Obawia się o to, że w jej aurze jest skaza pochodząca ze źr&#243;dła, kt&#243;rego nie zna, a kt&#243;re wpływa na jej myśli. Liczy na to, że po wybieleniu jej własnej, wampirzej aury będzie mogła dostrzec, czym konkretnie jest owa skaza.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:23 PM</span>
+
+            <div class="chatlog__message " data-message-id="818247626301505556" id="message-818247626301505556" title="Message sent: 07-Mar-21 11:23 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Dziękuję, że m&#243;wisz mi o tym. Wiem, że masz swoje sprawy i swoje tajemnice...jak najbardziej to rozumiem. Lubię po prostu wiedzieć na czym stoję. Ta hipotetyczna skaza brzmi całkiem groźnie.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:31 PM</span>
+
+            <div class="chatlog__message " data-message-id="818249561696894976" id="message-818249561696894976" title="Message sent: 07-Mar-21 11:31 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Owszem. Zmącone myśli wampira są zagrożeniem dla niego, a poprzez Bestię r&#243;wnież dla otoczenia. Jestem jednak pewien, że władam większymi mocami od Sun Che. Gdyby miało dojść do zagrożenia, nie zawaham się, by ją obezwładnić. Zgodziła się na taki warunek.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:34 PM</span>
+
+            <div class="chatlog__message " data-message-id="818250213809717308" id="message-818250213809717308" title="Message sent: 07-Mar-21 11:34 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia z powagą skinęła głową.
+- <em>Czy ten układ to właśnie te ostatnie sukcesy w związku z zacieśnianiem więzi z Fundacją?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:46 PM</span>
+
+            <div class="chatlog__message " data-message-id="818253253657231376" id="message-818253253657231376" title="Message sent: 07-Mar-21 11:46 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Owszem, na zasadzie małych krok&#243;w. Wiem, że pozostali jej rezydenci r&#243;wnież szukali rozwiązania problem&#243;w Sun Che, ale najwyraźniej polegli na tym polu. Wiedza o rytuale trafiła do niej dzięki mnie, ale nie chcę na tym kończyć mojego udziału - to nie przekaże odpowiedniego sygnału. Taką dostawę wiedzy m&#243;głby uczynić nawet dobrze poinformowany Nosferatu. Ja chcę p&#243;jść dalej, uczynić gest w czasach, w kt&#243;rych trudniej pomiędzy Tremere o zaufanie niż kiedyś. Oczekuję, że to ostatecznie da owoce w postaci wzajemnej przyjaźni oraz bezpiecznej przestrzeni wśr&#243;d naszego klanu w Chicago. Mam też wielką nadzieję, że znajdzie się w tym szansa na Twoją zasługę, byś r&#243;wnież mogła na tym skorzystać.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:53 PM</span>
+
+            <div class="chatlog__message " data-message-id="818255104913834033" id="message-818255104913834033" title="Message sent: 07-Mar-21 11:53 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Mam nadzieję, że tak właśnie będzie </em>- powiedziała bardziej z życzeniem w głosie niż z pewnością. - <em>Jutro mogę załatwić tę zabawkę. Na kiedy planujecie ten rytuał?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">07-Mar-21 11:57 PM</span>
+
+            <div class="chatlog__message " data-message-id="818256157239410708" id="message-818256157239410708" title="Message sent: 07-Mar-21 11:57 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Dziękuję, Mia. Ta decyzja jest po stronie Sun Che, acz nie p&#243;źniej niż ta niedziela. Ma mnie poinformować jeszcze dzisiejszej nocy. Jeżeli nastąpi to dopiero po naszym spacerze, dam Ci znać.</em>
+
+Przez moment Bruno wpatrywał się w fasadę muzeum oświetloną reflektorami. <em>- Jak nastroje wśr&#243;d twoich?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 12:20 AM</span>
+
+            <div class="chatlog__message " data-message-id="818261924772839464" id="message-818261924772839464" title="Message sent: 08-Mar-21 12:20 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Mia zamyśliła się.
+- <em>Ciężkie pytanie. Przyznam, że nie czułam determinacji ani pewności w ich głosie. Podjęliśmy pewne wsp&#243;lne decyzje jak będziemy działać w najbliższych dniach, ale... padały r&#243;żne propozycję, kt&#243;re powiedźmy, że zaniepokoiły mnie. Jack proponował przyłączenie się do Camarilli... Dość szybko jednak zrezygnował z kontynuowania tematu z racji na nasze raczej nieprzychylne opinie. Randall z kolei wspominał, że moglibyśmy zatrudnić się...nie wiem czy to dobre słowo...u jakiegoś barona. Brak mi w nich zaangażowania w to czego się podjęliśmy. Zbyt łatwo się poddają...coś takiego jest mi zupełnie obce. Ostatecznie udało się wypracować plan na to byśmy z naszej domeny uczynili miejsce ochrony dla Spokrewnionych przede wszystkim dla tych zagubionych. Część pokoi hotelowych możemy przystosować do bezpiecznego spoczynku. Alice ma zająć się pomocą psychologiczną, Randall i nasz nowy nabytek - Pax ochroną fizyczną w razie potrzeby, a Jack chce wejść w jakieś struktury przestępcze.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 11:46 AM</span>
+
+            <div class="chatlog__message " data-message-id="818434381277298708" id="message-818434381277298708" title="Message sent: 08-Mar-21 11:46 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Brzmi to jakby ostatnie wydarzenia zasiały wśr&#243;d nich chaos. Dobrze, że wypracowaliście jakiś wsp&#243;lny kierunek rozwoju, ale przyznaję, Twoje słowa sugerują, że reszta koterii nie jest nawykła do spoglądania dalej niż kwestie własnego przetrwania. Nie słyszę za to w Twoich słowach uwagi skierowanej na waszego wroga. Nie ignorujcie go. Zar&#243;wno tego prawdopodobnego szpiega w waszej domenie, jak i samego Nathaniela. Spodziewam się, że dotrzecie tylko do fiaska w waszych, przyznaję, szczytnych celach, jeżeli nie zajmiecie się tymi utrudnieniami</em> - Bruno przerwał na moment i zmarszczył brwi. <em>- Ta propozycja przejścia na stronę Camarilli. Jak sądzisz, płynie ona z czegoś konkretnego? Na przykład jakichś znajomości?</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 11:55 AM</span>
+
+            <div class="chatlog__message " data-message-id="818436868114874399" id="message-818436868114874399" title="Message sent: 08-Mar-21 11:55 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Mogę się tylko domyślać... Wydaje mi się, że uważał, że tam znajdzie bezpieczną przystań i będzie powoli m&#243;gł się piąć w hierarchii. Tak przynajmniej sugerowały jego słowa. Nie wiem czy stało za tym coś więcej.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 11:58 AM</span>
+
+            <div class="chatlog__message " data-message-id="818437473922187304" id="message-818437473922187304" title="Message sent: 08-Mar-21 11:58 AM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Hmm, początkowo spodziewałem się, że wasza grupa to Spokrewnieni utożsamiający się na jakiejkolwiek płaszczyźnie z Ruchem Anarchist&#243;w. To co m&#243;wisz sugeruje jednak, że w razie nastąpienia kłopot&#243;w pierwszy kierunek, jakiego szuka Jack, to wsparcie Wieży. To zaskakujące. Może nie powinno takie być, ale miałem pewne nadzieje co do grupy dobranej przez Erzulie.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 12:12 PM</span>
+
+            <div class="chatlog__message " data-message-id="818441045859631126" id="message-818441045859631126" title="Message sent: 08-Mar-21 12:12 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em>Jack jest dla mnie zagadką. Przyznam, że nie przepadam za politykami, a on nie przekonał mnie do nich. Nie mam pojęcia co roi się w jego głowie. Staram się nie patrzyć na niego przez pryzmat jego pracy, ale jego spos&#243;b bycia nie ułatwia tego. Co do reszty, to nie zgłębiłam na razie na jakiej płaszczyźnie utożsamiają się z Ruchem Anarchist&#243;w. A ja...sam wiesz...jestem tam gdzie jesteś ty... Nie da się ukryć, że nie jest i nie może być w moim przypadku mowy o jakieś świadomej i przemyślanej decyzji. Nie myśl tylko proszę, że jest to jakiś zarzut do ciebie. Moja wiedza opiera się tylko na tym co ty mi powiesz i sądzę, że byłbyś w stanie przedstawić mi tak Camarillę, że cieszyłabym się, że jestem jej częścią.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 01:24 PM</span>
+
+            <div class="chatlog__message " data-message-id="818459122382667786" id="message-818459122382667786" title="Message sent: 08-Mar-21 01:24 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Camarilla, tak jak każdy skomplikowany układ, jest sumą jego element&#243;w i tego, jak postępują ze sobą i z otoczeniem owe elementy. Nie śmiem twierdzić, że wszystkie jej filary są godne potępienia - to byłoby naiwne, idiotyczne wręcz. Problem w tym, jak Camarilla wypacza jej członk&#243;w i ich troskę o to, co Camarilla powinna chronić w myśl jej reguł. Myślę, że znalazłbym spos&#243;b na to, by ukazać Ci ją jako coś wartego pochwały i członkostwa w niej, ale uczyniłbym Ci tym krzywdę, byłbym nieuczciwy wobec Ciebie i siebie, a z kolei ci, kt&#243;rzy tworzą Camarillę, po prostu nie zasługują na taką pochwałę.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 01:29 PM</span>
+
+            <div class="chatlog__message " data-message-id="818460446046289950" id="message-818460446046289950" title="Message sent: 08-Mar-21 01:29 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Nie znasz w Camarilli nikogo, kto byłby wart pochwały?</em> - zapytała z lekką ciekawością w głosie.</span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 01:47 PM</span>
+
+            <div class="chatlog__message " data-message-id="818465071755165736" id="message-818465071755165736" title="Message sent: 08-Mar-21 01:47 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Bruno zaśmiał się lekko. <em>- Ha, złapałaś mnie na pewnej hiperboli. Nie jest tak, że w tej strukturze nie ma Spokrewnionych, kt&#243;rzy jako jednostki są godni uznania. Problemu doszukuję się w tym, jak dedykacja Camarilli wymaga nawet od takich wampir&#243;w udziału w relacjach szkodliwych, niszczących, opartych na przymusie i przemocy w imię koncentracji coraz bardziej kr&#243;tkowzrocznej władzy.</em>
+
+<em>- A jednak gdyby spojrzeć na wampiry Camarilli jak na pojedyncze osoby, można ujrzeć wśr&#243;d nich trochę dobrego. Pozytywne rzeczy słyszałem o Cedricku Calhounie. To Nosferatu. Podobno jest niezwykle skupiony na tym, by oszczędzać śmiertelnym cierpienia związanego z tym, że pośr&#243;d nich są wampiry. Sądzę, że Rosa Hernandez, o kt&#243;rej rozmawialiśmy już parokrotnie, jest wampirzycą skupioną mniej na polityce, a bardziej na problemach powszechnych dla nas. Galeforce niegdyś był lojalny wobec Camarilli. Oficjalnie</em> - położył nacisk na to słowo <em>- nadal jest, o ile dobrze odczytuję sytuację dookoła niego.</em>
+
+<em>- Są też właśnie tacy, kt&#243;rzy funkcjonują gdzieś na granicach sekt. Wasza Erzulie na przykład - wiem, że ma ona odmienną wizję funkcjonowania społeczności niż to, co narzuca Camarilla, ale z drugiej strony nie stroni od utrzymywania relacji z tymi wampirami Wieży, kt&#243;rych ceni. Wbrew narzuconej elitarności Camarilli i ukrytej wojnie prowadzonej z Anarchistami jest wielu takich, kt&#243;rzy decydują się na utrzymywanie więzi nie z sektami, a z poszczeg&#243;lnymi wampirami tych sekt. Odnajdują w tym jakiś porządek i, co ważniejsze, zdolność by przetrwać pomimo ryzyka napiętnowania przez tych Spokrewnionych, kt&#243;rzy nie są zdolni do tolerowania takiego... hmm, manewrowania.</em></span>
+
+                                <span class="chatlog__edited-timestamp" title="08-Mar-21 01:50 PM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 02:04 PM</span>
+
+            <div class="chatlog__message " data-message-id="818469148149415976" id="message-818469148149415976" title="Message sent: 08-Mar-21 02:04 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">-<em> Być może Devin...ten z kt&#243;rym wyszło to nieporozumienie z ghulami, też należy do tego typu Spokrewnionych. Podobno ma dobre relacje z Szeryfem. </em>
+Po chwili zamyślenia dodała:
+- <em>Wracając do sprawy Nathaniel&#39;a...rozmawialiśmy o tym problemie w koterii. Cześć z nas ma zamiar podjąć bezpośrednie kroki, żeby wytropić i być może złapać tego ghula. Z drugiej strony wspominałeś, że m&#243;głbyś mnie nauczyć rytuał&#243;w ochronnych przeciwko takim istotom. Czy ta propozycja jest aktualna cały czas? </em>- spojrzała na niego z delikatnym uśmiechem.</span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 02:09 PM</span>
+
+            <div class="chatlog__message " data-message-id="818470562988032080" id="message-818470562988032080" title="Message sent: 08-Mar-21 02:09 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- Owszem. Nie umyka zresztą uwadze, że teraz troska o niecne sprawki owego ghula jest już nie tylko Twoją, ale też moją troską... kuzynko</em> - skwitował z własnym, dumnym uśmiechem. <em>- Taka nauka to proces wymagający czasu. Przekazanie wiedzy, pierwsze pr&#243;by, skorygowanie błęd&#243;w... Być może zdołamy zamknąć go w dw&#243;ch nocach. Dzisiejszego wieczora nie czekają mnie żadne ważniejsze sprawunki. Jeżeli takie jest Twoje życzenie, naukę rozpocznijmy jeszcze dziś.</em></span>
+
+                                <span class="chatlog__edited-timestamp" title="08-Mar-21 02:11 PM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/68e644770abc1fec178dafa07c19d120.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+        <span class="chatlog__author-name" title="Mia#0000" data-user-id="859530051875635220" style="">Mia</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 02:13 PM</span>
+
+            <div class="chatlog__message " data-message-id="818471414390587423" id="message-818471414390587423" title="Message sent: 08-Mar-21 02:13 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace">Uśmiechnęła się rozbawiona na wspomnienie o kuzynce.
+- <em>Tak. Czemu nie...zacznijmy już dziś - powiedziała z entuzjazmem.</em></span>
+
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+<div class="chatlog__message-group">
+
+    <div class="chatlog__author-avatar-container">
+        <img class="chatlog__author-avatar" src="https://cdn.discordapp.com/avatars/859530051875635220/c35ec0dc67ce628410bed648250161df.png?size=128" alt="Avatar" loading="lazy">
+    </div>
+
+    <div class="chatlog__messages">
+          <span class="chatlog__author-name" title="Bruno#0000" data-user-id="859530051875635220" style="">Bruno</span>
+
+
+        <span class="chatlog__timestamp">08-Mar-21 02:15 PM</span>
+
+            <div class="chatlog__message " data-message-id="818472072585805874" id="message-818472072585805874" title="Message sent: 08-Mar-21 02:15 PM">
+                    <div class="chatlog__content">
+                        <div class="markdown">
+                            <span class="preserve-whitespace"><em>- W takim razie udajmy się do mojego wcześniejszego schronienia, tam zaczniemy praktyczną naukę. Po drodze opowiem Ci o podstawach.</em>
+
+</span>
+
+                                <span class="chatlog__edited-timestamp" title="08-Mar-21 02:15 PM"> </span>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
+    </div>
+</div>
+
+
+
+</div>
+<div class="postamble">
+</div>
+
+</body>
+
+</html>
